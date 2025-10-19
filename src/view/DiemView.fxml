@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane  xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DiemController">
+    <top>
+        <Label style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-padding: 10;" text="QUẢN LÝ BẢNG ĐIỂM THEO LỚP" BorderPane.alignment="CENTER" />
+    </top>
+    <center>
+        <VBox spacing="10">
+            <padding>
+                <Insets bottom="10" left="10" right="10" top="10" />
+            </padding>
+            
+            <!-- Khu vực lọc thông tin -->
+            <HBox alignment="CENTER_LEFT" spacing="10">
+                <Label text="Chọn lớp:" />
+                <ComboBox fx:id="cbLop" prefWidth="150.0" promptText="Chọn lớp" />
+                <Label text="Chọn môn học:" />
+                <ComboBox fx:id="cbMonHoc" prefWidth="250.0" promptText="Chọn môn học" />
+                <Button onAction="#locDiem" text="Xem điểm" style="-fx-font-weight: bold;"/>
+                <Region HBox.hgrow="ALWAYS" />
+            </HBox>
+            
+            <Separator/>
+            
+            <!-- Bảng hiển thị điểm -->
+            <TableView fx:id="tableDiem" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="colMaSV" prefWidth="100.0" text="Mã SV" />
+                    <TableColumn fx:id="colHoTen" prefWidth="200.0" text="Họ tên" />
+                    <TableColumn fx:id="colDiemQT" prefWidth="120.0" text="Điểm Quá Trình" />
+                    <TableColumn fx:id="colDiemThi" prefWidth="120.0" text="Điểm Thi" />
+                    <TableColumn fx:id="colDiemTB" prefWidth="120.0" text="Điểm Trung Bình" />
+                </columns>
+                <columnResizePolicy>
+                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                </columnResizePolicy>
+            </TableView>
+            
+             <Separator/>
+
+            <!-- Khu vực nhập/cập nhật điểm -->
+            <GridPane hgap="10" vgap="10" alignment="CENTER">
+                <columnConstraints>
+                    <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" />
+                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="150.0" />
+                    <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" />
+                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="150.0" />
+                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                </columnConstraints>
+                <rowConstraints>
+                    <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                    <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                </rowConstraints>
+                <children>
+                    <Label text="Mã SV:" />
+                    <TextField fx:id="tfMaSV" editable="false" GridPane.columnIndex="1" />
+                    <Label text="Họ tên:" GridPane.rowIndex="1" />
+                    <TextField fx:id="tfHoTen" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                    
+                    <Label text="Điểm QT:" GridPane.columnIndex="2" />
+                    <TextField fx:id="tfDiemQT" GridPane.columnIndex="3" />
+                    <Label text="Điểm Thi:" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                    <TextField fx:id="tfDiemThi" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+
+                    <Button onAction="#capNhatDiem" text="Cập nhật điểm" GridPane.columnIndex="4" GridPane.rowSpan="2" />
+                </children>
+            </GridPane>
+        </VBox>
+    </center>
+</BorderPane>

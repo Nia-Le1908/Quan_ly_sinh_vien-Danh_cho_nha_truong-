@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<!-- Đã thêm stylesheets="/view/styles.css" và các style class cho các nút -->
+<BorderPane stylesheets="/view/style.css" xmlns:fx="http://javafx.com/fxml" fx:controller="controller.MonHocController">
+
+    <top>
+        <Label styleClass="main-title" text="QUẢN LÝ MÔN HỌC" BorderPane.alignment="CENTER" />
+    </top>
+
+    <center>
+        <VBox spacing="15">
+            <padding>
+                <Insets bottom="10" left="10" right="10" top="10" />
+            </padding>
+
+            <HBox alignment="CENTER" spacing="10">
+                <TextField fx:id="tfMaMon" promptText="Mã môn học" HBox.hgrow="ALWAYS" />
+                <TextField fx:id="tfTenMon" promptText="Tên môn học" HBox.hgrow="ALWAYS" />
+                <TextField fx:id="tfSoTinChi" promptText="Số tín chỉ" HBox.hgrow="ALWAYS" />
+            </HBox>
+
+            <HBox alignment="CENTER" spacing="10">
+                <ComboBox fx:id="cbLoaiMon" prefWidth="400" promptText="Loại môn" />
+                <TextField fx:id="tfMonTienQuyet" promptText="Môn tiên quyết (Mã môn)" HBox.hgrow="ALWAYS" />
+            </HBox>
+
+            <HBox alignment="CENTER_LEFT" spacing="10">
+                <Button onAction="#themMonHoc" text="Thêm" />
+                <Button onAction="#suaMonHoc" text="Sửa" />
+                <Button onAction="#xoaMonHoc" styleClass="button-delete" text="Xóa" />
+                <Region HBox.hgrow="ALWAYS" />
+                <TextField fx:id="tfTimKiem" prefWidth="300" promptText="Tìm theo mã hoặc tên" />
+                <Button onAction="#timKiemMonHoc" styleClass="button-search" text="Tìm" />
+            </HBox>
+
+            <TableView fx:id="tableMonHoc" prefHeight="400" prefWidth="700" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="colMaMon" prefWidth="100" text="Mã môn" />
+                    <TableColumn fx:id="colTenMon" prefWidth="200" text="Tên môn" />
+                    <TableColumn fx:id="colSoTinChi" prefWidth="100" text="Số tín chỉ" />
+                    <TableColumn fx:id="colLoaiMon" prefWidth="150" text="Loại môn" />
+                    <TableColumn fx:id="colMonTienQuyet" prefWidth="150" text="Môn tiên quyết" />
+                </columns>
+            </TableView>
+        </VBox>
+    </center>
+</BorderPane>
