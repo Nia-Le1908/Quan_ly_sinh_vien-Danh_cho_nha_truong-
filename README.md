@@ -11,3 +11,4 @@ Chọn -> Platform Independent
 https://gluonhq.com/products/javafx/
 Chọn -> Tùy thuộc vào HĐH đang dùng -> SDK
 ->Tương tự DB connector
+# Tải đúng phiên bản trong các file launch, taks, settings
